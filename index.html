@@ -1,0 +1,274 @@
+<!doctype html>
+<!--
+  Incident de sécurité – annonce aux autorités, id est avocats
+  Copyright (C) 2026 id est avocats Sàrl
+  SPDX-License-Identifier: AGPL-3.0-or-later
+  Les tableaux et textes juridiques sont en outre mis à disposition sous licence CC BY-NC 4.0.
+  Ce programme est distribué sans aucune garantie. Voir le fichier LICENSE.
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<script>try { var t = localStorage.getItem('idest-notification:theme'); if (t) { t = JSON.parse(t); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } } catch (e) {}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Incident de sécurité en Suisse : quelles autorités informer (PFPDT, OFCS, FINMA, autorité cantonale), dans quel délai. Matrice de risque. id est avocats.">
+<title>Incident de sécurité – annonce aux autorités, id est avocats</title>
+<style>
+:root{--rose:#E61E6E;--anthra:#333334;--turq:#069297;--orange:#F7A823;
+  --bg:#F2F2F2;--panel:#FFFFFF;--ink:#333334;--muted:#68686C;--line:#DEDDE1;--field:#FFFFFF;--soft:#F7F7F8;
+  --warn-ink:#7A4D00;--caution-bg:#FDF1DC;--caution-ink:#5A3A00;--sum-bg:#FAE0EB;--nbg:#333334;
+  --font:Arial,"Helvetica Neue",Helvetica,sans-serif;--head:"Grandview","Grandview Display",Arial,"Helvetica Neue",Helvetica,sans-serif;
+  box-sizing:border-box;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1B1B1C;--panel:#252526;--ink:#F2F2F2;--muted:#B3B3B8;--line:#3A3A3D;--field:#1F1F20;--soft:#2C2C2E;--warn-ink:#FFD58A;--caution-bg:#352812;--caution-ink:#FFD58A;--sum-bg:#3A1424;--nbg:#E61E6E;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1B1B1C;--panel:#252526;--ink:#F2F2F2;--muted:#B3B3B8;--line:#3A3A3D;--field:#1F1F20;--soft:#2C2C2E;--warn-ink:#FFD58A;--caution-bg:#352812;--caution-ink:#FFD58A;--sum-bg:#3A1424;--nbg:#E61E6E;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:15.5px;line-height:1.5;-webkit-text-size-adjust:100%}
+.topband{height:6px;background:var(--rose)}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 20px 40px}
+header{position:relative;padding-right:28px}
+header::after{content:"";position:absolute;right:0;top:4px;width:6px;height:64px;background:var(--orange)}
+.headrow{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.firm{font-weight:700;color:var(--rose);font-size:14px}
+.toggles{display:flex;gap:8px;flex-wrap:wrap}
+.theme{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--panel)}
+.theme button{font:inherit;font-size:12.5px;font-weight:700;color:var(--muted);background:transparent;border:0;padding:5px 11px;cursor:pointer}
+.theme button[aria-pressed="true"]{background:var(--nbg);color:#fff}
+h1{font-family:var(--head);font-size:32px;line-height:1.12;font-weight:700;margin:4px 0 0}
+.beta{display:inline-block;vertical-align:middle;margin-left:10px;font-family:var(--font);font-size:12px;font-weight:700;color:var(--rose);border:1.5px solid var(--rose);border-radius:999px;padding:1px 8px}
+header p{margin:8px 0 0;color:var(--muted);max-width:76ch}
+.caution{margin-top:16px;background:var(--caution-bg);color:var(--caution-ink);border-left:5px solid var(--orange);border-radius:6px;padding:11px 14px;font-size:14.5px;max-width:84ch}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:22px;margin-top:22px;align-items:start}
+@media (max-width:920px){.grid{grid-template-columns:1fr}}
+.panel{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--rose);border-radius:8px;padding:20px}
+.panel.result{border-top-color:var(--turq)}
+h2{font-family:var(--head);font-size:17px;margin:18px 0 8px}
+h2:first-child{margin-top:0}
+.q{border:1px solid var(--line);background:var(--soft);border-radius:6px;padding:11px 14px;margin-bottom:9px}
+.q.sub{margin-left:18px;border-left:4px solid var(--turq)}
+.q p{margin:0 0 7px;font-weight:700;font-size:14.5px}
+.q small{display:block;color:var(--muted);font-size:13px;margin-top:6px}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-size:14px;color:var(--ink);padding:7px 13px;border:1px solid var(--line);background:var(--field);border-radius:6px;cursor:pointer;min-height:38px}
+.seg button.on{background:var(--nbg);border-color:var(--nbg);color:#fff;font-weight:700}
+.chk label{display:flex;gap:8px;align-items:flex-start;padding:7px 10px;margin-bottom:5px;border:1px solid var(--line);border-radius:6px;background:var(--field);cursor:pointer;font-size:14px}
+.chk label.on{border-color:var(--turq);font-weight:700}
+.chk input{accent-color:var(--rose);margin-top:3px}
+details{margin-top:8px;font-size:13.5px;color:var(--muted)}
+details summary{cursor:pointer;color:var(--turq);font-weight:700}
+details ul{margin:6px 0 0;padding-left:18px}
+details.mini{margin-top:12px;border:1px solid var(--line);border-radius:6px;padding:8px 12px}
+details.mini p{font-size:12.5px;line-height:1.45;margin:6px 0}
+input[type=datetime-local]{font:inherit;color:var(--ink);padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--field);min-height:40px}
+button:focus-visible,summary:focus-visible,input:focus{outline:3px solid color-mix(in srgb,var(--rose) 40%,transparent);outline-offset:1px}
+.mx{display:grid;grid-template-columns:auto repeat(4,1fr);gap:3px;font-size:12.5px;margin-top:4px}
+.mx .yl,.mx .xl{color:var(--muted);display:flex;align-items:center;padding:2px 6px}
+.mx .yl{justify-content:flex-end;text-align:right}.mx .xl{justify-content:center;text-align:center}
+.mx button{height:38px;border:2px solid var(--soft);border-radius:4px;cursor:pointer;font:inherit;font-size:12px;font-weight:700;color:#fff}
+.mx .lo{background:#069297}.mx .me{background:#B87400}.mx .hi{background:#E61E6E}
+.mx button.on{border-color:var(--ink);box-shadow:0 0 0 2px var(--ink)}
+.axis{font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.lvl{margin-top:8px;font-weight:700}
+.sum{padding:12px 16px;border-left:5px solid var(--rose);background:var(--sum-bg);border-radius:6px;margin-bottom:12px;font-size:16.5px}
+.card{border:1px solid var(--line);border-left:6px solid var(--line);border-radius:6px;padding:11px 16px;margin-bottom:10px;background:var(--panel)}
+.card h3{margin:0;font-size:16.5px;font-family:var(--head);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.tag{font-family:var(--font);font-size:11.5px;font-weight:700;padding:2px 9px;border-radius:999px;color:#fff;background:#77777B;text-transform:uppercase;letter-spacing:.04em}
+.card.req{border-left-color:var(--rose)}.req .tag{background:var(--rose)}
+.card.chkc{border-left-color:var(--orange)}.chkc .tag{background:#9A6200}
+.card.opt{border-left-color:var(--turq)}.opt .tag{background:var(--turq)}
+.card.no{background:var(--soft);color:var(--muted)}
+.when{font-weight:700;margin:5px 0 2px}.when .d{color:var(--rose)}
+.card p{margin:3px 0;font-size:14.5px}.basis{font-size:12.5px!important;color:var(--muted)}
+.btn{font:inherit;font-weight:700;font-size:14px;padding:8px 16px;border-radius:6px;border:1.5px solid var(--rose);background:var(--panel);color:var(--rose);cursor:pointer;margin:6px 6px 0 0}
+footer{margin-top:30px;color:var(--muted);font-size:13px}
+footer p{margin:6px 0;max-width:92ch}footer a{color:var(--rose)}
+.bottomband{background:var(--rose);color:#fff;font-size:13px}
+.bottomband .wrap{padding-top:12px;padding-bottom:12px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+@media print{.btn,.toggles,.bottomband{display:none}.grid{grid-template-columns:1fr}body,html{background:#fff}}
+</style>
+</head>
+<body>
+<div class="topband"></div>
+<div class="wrap">
+  <header>
+    <div class="headrow">
+      <div class="firm">id est avocats</div>
+      <div class="toggles">
+        <div class="theme" role="group" aria-label="Langue / Language"><button type="button" data-lang-set="fr" lang="fr">FR</button><button type="button" data-lang-set="en" lang="en">EN</button></div>
+        <div class="theme" role="group" aria-label="Affichage / Display"><button type="button" data-theme-set="auto">Auto</button><button type="button" data-theme-set="light">Clair</button><button type="button" data-theme-set="dark">Sombre</button></div>
+      </div>
+    </div>
+    <h1><span id="title"></span><span class="beta">beta</span></h1>
+    <p id="intro"></p>
+    <div class="caution" role="note" id="caution"></div>
+  </header>
+  <div class="grid">
+    <div class="panel" id="left"></div>
+    <section class="panel result" aria-live="polite">
+      <h2 id="hres"></h2><div class="sum" id="sum"></div><div id="res"></div>
+      <details class="mini"><summary id="hBases"></summary><div id="bases"></div></details>
+      <details class="mini"><summary id="hDisc"></summary><div id="disc"></div></details>
+    </section>
+  </div>
+  <footer><p id="licence"></p><p id="srcLink"></p></footer>
+</div>
+<div class="bottomband"><div class="wrap"><span>© 2026 id est avocats Sàrl</span><span id="band"></span></div></div>
+<script>
+(function(){
+var T={
+en:{loc:'en-GB',h1:'Security incident – notification to the authorities',
+ intro:'Swiss law, general orientation. Answer the questions on the left; the result updates as you go. By default, the tool assumes a private person or company without any special status.',
+ s1:'1. Who are you?',s2:'2. What happened?',s3:'3. Optional',res:'Result',print:'Print',reset:'Reset',by:'by',
+ q:{body:{p:'Are you a public body?',o:{private:'No, private person or company',federal:'Federal body',cantonal:'Cantonal or communal body'}},
+  delegate:{p:'Do you carry out public tasks delegated by an authority?',o:{no:'No',federal:'Yes, for the Confederation',cantonal:'Yes, for a canton or a commune'}},
+  ci:{p:'Do you qualify as a critical infrastructure under Swiss law?',o:{no:'No',yes:'Yes',unsure:'Not sure'},dt:'Who is covered (Art. 74b Information Security Act)',
+   dl:['Federal, cantonal and communal authorities; universities','Banks, insurers, financial market infrastructures','Energy supply; drinking water, waste water and waste; security and rescue','Listed hospitals, medical laboratories, manufacturers and distributors of medicinal products; social insurance','Telecommunications, postal services, public transport, civil aviation, Rhine navigation','Cloud, data centre, search engine, domain name and digital security or trust services established in Switzerland','Manufacturers of hardware or software used by critical infrastructures','Suppliers of essential everyday goods; SRG SSR and national news agencies'],
+   dn:'Summary only. The Cybersecurity Ordinance exempts certain small organisations. Check the text for your case.'},
+  finma:{p:'Are you a bank, or otherwise supervised by FINMA?',o:{no:'No',yes:'Yes'}},
+  pd:{p:'Are personal data affected (lost, deleted, altered, disclosed or accessed without authorisation)?',o:{no:'No',yes:'Yes'}},
+  risk:{p:'What is the risk for the persons concerned? Click the cell that matches your assessment.',x:'Severity of the consequences for the persons',y:'Likelihood',
+   lv:['Negligible','Limited','Significant','Maximum'],c:{lo:'Low',me:'Medium',hi:'High'},
+   small:'Severity: nature and sensitivity of the data, number of persons, possible harm (fraud, identity theft, discrimination, loss of confidentiality). Likelihood: who has the data, whether they are encrypted, whether misuse is plausible. The thresholds are indicative.',
+   none:'No cell selected: the risk is treated as not yet assessed.',res:'Risk level: '},
+  proc:{p:'Do you process these data on behalf of someone else (as a processor)?',o:{no:'No',yes:'Yes'}},
+  attack:{p:'Was it a cyber attack (a deliberate act against your IT systems)?',o:{no:'No, error or outage',yes:'Yes'}},
+  isa:{p:'Which of the following apply to the attack? Tick all that apply.',c:['It endangers the functioning of the organisation','Information was manipulated or leaked','It remained undetected for a long period','It involves blackmail, threats or coercion']},
+  sev:{p:'How severe is the incident for critical functions or critical data?',o:{low:'Not affected, or low',medium:'Medium or high',severe:'Severe'}},
+  gdpr:{p:'Does the GDPR apply (establishment in the EU, or offer of goods or services to persons in the EU)?',o:{no:'No',yes:'Yes'}},
+  when:{p:'When was the incident discovered?',small:'Used to compute the deadlines. For an outsourced function of a FINMA-supervised institution, enter the time at which the provider identified the incident. Public holidays are not taken into account.'}},
+ tag:{req:'Required',chk:'To check',ass:'To assess',no:'Not required',vol:'Voluntary',cant:'Refer to cantonal law',nc:'Not competent',unr:'Usually not required',ctl:'By the controller',also:'Also consider'},
+ n:{fdpic:'Federal Data Protection and Information Commissioner (FDPIC)',cdpa:'Cantonal data protection authority',ctl:'The controller (your customer)',pers:'Persons concerned',cdel:'Cantonal authority (delegated public tasks)',fdel:'Delegating federal authority',bacs:'Federal Office for Cybersecurity',finma:'FINMA',gdpr:'EU data protection authority (GDPR)',other:'Other steps'},
+ asap:'As soon as possible',
+ t:{cant1:'The federal Data Protection Act does not apply to cantonal and communal bodies. Whether, when and how a breach must be notified is governed by the data protection act of your canton.',cant2:'This tool does not cover the cantonal rules yet. Contact your data protection adviser or the cantonal authority.',cantb:'Cantonal data protection act; Art. 2 FADP',
+  nc:'The FDPIC supervises private persons and federal bodies only.',nopd:'No personal data are affected.',
+  proc1:'As a processor, you inform the controller. The controller decides on the notification to the FDPIC and to the persons concerned.',proc2:'Check the deadline and the content required by your contract.',
+  hi1:'Content: nature of the breach, consequences, measures taken or planned. Channel: online form of the FDPIC.',hi2:'There is no fixed period in hours. Document the breach and keep the documentation for at least two years.',
+  mew:'As soon as possible, if a high risk is likely',me:'The risk is medium or not yet assessed. Complete the assessment and document it. In case of doubt, a notification is advisable; a voluntary notification is possible.',
+  lo:'No high risk is likely. Document the incident and the assessment.',
+  pers:'They must be informed where this is necessary for their protection (for example to change passwords or to watch for fraud), or where the FDPIC requires it.',
+  cdel1:'For the delegated tasks, cantonal data protection law may apply to you. Check whether an additional notification to the cantonal data protection authority is required.',cdel2:'Inform the authority that delegated the task; the delegation act or contract usually requires it.',cdelb:'Cantonal data protection act; delegation act or contract',
+  fdel1:'For the delegated tasks, you are treated as a federal body under the Data Protection Act. The duty to notify the FDPIC applies as shown here.',fdel2:'Inform the federal office that delegated the task, as provided in the delegation act or contract.',
+  b24:'Within 24 hours of discovery',b1:'Channel: Cyber Security Hub of the Office. Content: who reports, type and execution of the attack, effects, measures taken, next steps. Missing information can follow.',b2:'A wilful failure to report after a reminder can be fined up to CHF 100,000.',bb:'Art. 74a to 74h ISA; Cybersecurity Ordinance',
+  bu:'Within 24 hours of discovery, if you are covered',bu1:'Check whether your organisation is listed in Art. 74b ISA and not exempted by the Cybersecurity Ordinance.',
+  bv1:'None of the reporting criteria is ticked. ',bv2:'You are not subject to the reporting duty. ',bv3:'A voluntary report is possible and helps the Office warn others.',bv4:'The reporting duty concerns cyber attacks. A voluntary report of an incident or vulnerability remains possible.',bvb:'Information Security Act (voluntary reports)',
+  f1:'Initial notice within 24 hours',f2:', report within 72 hours',fs:'Severe attack: the 24 hours also run on non-working days.',fm:'The deadlines are counted in bank working days; for a severe attack they run on all days.',f3:'For an outsourced function, the period starts when you or your provider identify the incident. Notice to the account manager by telephone or email, then report through the FINMA portal. Inform your audit firm.',fb:'Art. 29 para. 2 FINMASA; FINMA Guidance 05/2020 and 03/2024',
+  fa:'Immediately, if the incident is of substantial importance for supervision',fa1:'The specific rules on cyber attacks apply from medium severity for critical functions or data. Document the assessment and reassess if the situation changes.',fa2:'An outage without malicious cause is outside the guidance on cyber attacks. The general duty to report remains for significant incidents.',
+  g72:'Within 72 hours of becoming aware',g1:'Unless the breach is unlikely to result in a risk for the persons concerned. Persons concerned are informed if the risk is high.',gp:'As a processor, you inform the controller without undue delay. The controller notifies the authority within 72 hours.',
+  o1:'<b>Police or public prosecutor:</b> consider a criminal complaint. Some offences are prosecuted only on complaint, within three months.',o2:'<b>Contracts:</b> customers, partners or a parent company may have to be informed within a contractual deadline.',o3:'<b>Cyber insurer:</b> policies usually require prompt notice.',o4:'<b>Other rules:</b> professional secrecy, sector rules and foreign law (for example DORA or US rules within a group) can add duties.'},
+ sum:function(r,c){return (r?'<b>'+r+' notification'+(r>1?'s':'')+' required</b>':'<b>No notification to an authority is required</b> on these answers')+(c?', '+c+' point'+(c>1?'s':'')+' to check or assess.':'.')},
+ foot:'Bases: Art. 24 Federal Act on Data Protection (FADP) and Art. 15 Data Protection Ordinance; Art. 74a to 74h Information Security Act (ISA) and Cybersecurity Ordinance; Art. 29 para. 2 FINMASA and FINMA Guidance 05/2020 and 03/2024; GDPR Art. 33 and 34. Cantonal data protection law is not covered yet. Status: November 2026.<br>General information and first orientation only. The tool simplifies the rules and does not replace an analysis of the specific case. It does not constitute legal advice. id est avocats · works offline, no data leave this page.'},
+fr:{loc:'fr-CH',h1:'Incident de sécurité – annonce aux autorités',
+ intro:'Droit suisse, première orientation. Répondez aux questions à gauche ; le résultat se met à jour au fur et à mesure. Par défaut, l\'outil part d\'une personne ou d\'une entreprise privée sans statut particulier.',
+ s1:'1. Qui êtes-vous ?',s2:'2. Que s\'est-il passé ?',s3:'3. Facultatif',res:'Résultat',print:'Imprimer',reset:'Réinitialiser',by:'jusqu\'au',
+ q:{body:{p:'Êtes-vous un organe public ?',o:{private:'Non, personne ou entreprise privée',federal:'Organe fédéral',cantonal:'Organe cantonal ou communal'}},
+  delegate:{p:'Accomplissez-vous des tâches publiques déléguées par une autorité ?',o:{no:'Non',federal:'Oui, pour la Confédération',cantonal:'Oui, pour un canton ou une commune'}},
+  ci:{p:'Êtes-vous une infrastructure critique au sens du droit suisse ?',o:{no:'Non',yes:'Oui',unsure:'Pas sûr'},dt:'Qui est visé (art. 74b de la loi sur la sécurité de l\'information)',
+   dl:['Autorités fédérales, cantonales et communales ; hautes écoles','Banques, assurances, infrastructures des marchés financiers','Approvisionnement en énergie ; eau potable, eaux usées et déchets ; sécurité et sauvetage','Hôpitaux répertoriés, laboratoires médicaux, fabricants et distributeurs de médicaments ; assurances sociales','Télécommunications, services postaux, transports publics, aviation civile, navigation rhénane','Services cloud, centres de calcul, moteurs de recherche, noms de domaine, services de sécurité et de confiance numériques établis en Suisse','Fabricants de matériel ou de logiciels utilisés par des infrastructures critiques','Fournisseurs de biens de consommation courante indispensables ; SRG SSR et agences de presse d\'importance nationale'],
+   dn:'Résumé seulement. L\'ordonnance sur la cybersécurité exempte certaines petites organisations. Vérifiez le texte pour votre cas.'},
+  finma:{p:'Êtes-vous une banque ou un autre assujetti à la surveillance de la FINMA ?',o:{no:'Non',yes:'Oui'}},
+  pd:{p:'Des données personnelles sont-elles touchées (perdues, effacées, modifiées, divulguées ou consultées sans autorisation) ?',o:{no:'Non',yes:'Oui'}},
+  risk:{p:'Quel est le risque pour les personnes concernées ? Cliquez sur la case qui correspond à votre appréciation.',x:'Gravité des conséquences pour les personnes',y:'Probabilité',
+   lv:['Négligeable','Limitée','Importante','Maximale'],c:{lo:'Faible',me:'Moyen',hi:'Élevé'},
+   small:'Gravité : nature et sensibilité des données, nombre de personnes, préjudice possible (fraude, usurpation d\'identité, discrimination, perte de confidentialité). Probabilité : qui détient les données, sont-elles chiffrées, un usage abusif est-il plausible. Les seuils sont indicatifs.',
+   none:'Aucune case choisie : le risque est traité comme non encore évalué.',res:'Niveau de risque : '},
+  proc:{p:'Traitez-vous ces données pour le compte d\'un tiers (en tant que sous-traitant) ?',o:{no:'Non',yes:'Oui'}},
+  attack:{p:'S\'agit-il d\'une cyberattaque (acte délibéré contre vos systèmes informatiques) ?',o:{no:'Non, erreur ou panne',yes:'Oui'}},
+  isa:{p:'Lesquels de ces éléments s\'appliquent à l\'attaque ? Cochez tout ce qui s\'applique.',c:['Elle met en péril le fonctionnement de l\'organisation','Des informations ont été manipulées ou ont fuité','Elle est restée longtemps non détectée','Elle s\'accompagne de chantage, de menaces ou de contrainte']},
+  sev:{p:'Quelle est la gravité de l\'incident pour les fonctions critiques ou les données critiques ?',o:{low:'Non touchées, ou faible',medium:'Moyenne ou élevée',severe:'Grave'}},
+  gdpr:{p:'Le RGPD s\'applique-t-il (établissement dans l\'UE, ou offre de biens ou de services à des personnes dans l\'UE) ?',o:{no:'Non',yes:'Oui'}},
+  when:{p:'Quand l\'incident a-t-il été découvert ?',small:'Sert à calculer les échéances. Pour une fonction externalisée d\'un assujetti FINMA, indiquez le moment où le prestataire a identifié l\'incident. Les jours fériés ne sont pas pris en compte.'}},
+ tag:{req:'Requis',chk:'À vérifier',ass:'À évaluer',no:'Non requis',vol:'Facultatif',cant:'Voir le droit cantonal',nc:'Non compétent',unr:'En principe non requis',ctl:'Par le responsable',also:'À considérer aussi'},
+ n:{fdpic:'Préposé fédéral à la protection des données et à la transparence (PFPDT)',cdpa:'Autorité cantonale de protection des données',ctl:'Le responsable du traitement (votre client)',pers:'Personnes concernées',cdel:'Autorité cantonale (tâches publiques déléguées)',fdel:'Autorité fédérale délégante',bacs:'Office fédéral de la cybersécurité (OFCS)',finma:'FINMA',gdpr:'Autorité de protection des données de l\'UE (RGPD)',other:'Autres démarches'},
+ asap:'Dans les meilleurs délais',
+ t:{cant1:'La loi fédérale sur la protection des données ne s\'applique pas aux organes cantonaux et communaux. L\'obligation d\'annoncer une violation, son délai et sa forme sont régis par la loi sur la protection des données de votre canton.',cant2:'Cet outil ne couvre pas encore les règles cantonales. Adressez-vous à votre conseiller à la protection des données ou à l\'autorité cantonale.',cantb:'Loi cantonale sur la protection des données ; art. 2 LPD',
+  nc:'Le PFPDT ne surveille que les personnes privées et les organes fédéraux.',nopd:'Aucune donnée personnelle n\'est touchée.',
+  proc1:'En tant que sous-traitant, vous informez le responsable du traitement. Celui-ci décide de l\'annonce au PFPDT et de l\'information des personnes concernées.',proc2:'Vérifiez le délai et le contenu exigés par votre contrat.',
+  hi1:'Contenu : nature de la violation, conséquences, mesures prises ou prévues. Canal : formulaire en ligne du PFPDT.',hi2:'Il n\'y a pas de délai fixe en heures. Documentez la violation et conservez la documentation au moins deux ans.',
+  mew:'Dans les meilleurs délais, si un risque élevé est vraisemblable',me:'Le risque est moyen ou n\'est pas encore évalué. Terminez l\'évaluation et documentez-la. En cas de doute, une annonce est indiquée ; une annonce volontaire est possible.',
+  lo:'Un risque élevé n\'est pas vraisemblable. Documentez l\'incident et l\'évaluation.',
+  pers:'Elles doivent être informées lorsque cela est nécessaire à leur protection (par exemple pour changer de mot de passe ou surveiller une fraude), ou lorsque le PFPDT l\'exige.',
+  cdel1:'Pour les tâches déléguées, le droit cantonal de la protection des données peut s\'appliquer à vous. Vérifiez si une annonce supplémentaire à l\'autorité cantonale de protection des données est requise.',cdel2:'Informez l\'autorité qui vous a délégué la tâche ; l\'acte de délégation ou le contrat le prévoit en général.',cdelb:'Loi cantonale sur la protection des données ; acte de délégation ou contrat',
+  fdel1:'Pour les tâches déléguées, vous êtes assimilé à un organe fédéral au sens de la LPD. L\'obligation d\'annoncer au PFPDT s\'applique comme indiqué ici.',fdel2:'Informez l\'office fédéral qui vous a délégué la tâche, selon l\'acte de délégation ou le contrat.',
+  b24:'Dans les 24 heures suivant la découverte',b1:'Canal : Cyber Security Hub de l\'OFCS. Contenu : auteur du signalement, type et déroulement de l\'attaque, effets, mesures prises, suite prévue. Les informations manquantes peuvent suivre.',b2:'L\'omission intentionnelle de signaler après un rappel est passible d\'une amende de 100 000 francs au plus.',bb:'Art. 74a à 74h LSI ; ordonnance sur la cybersécurité',
+  bu:'Dans les 24 heures suivant la découverte, si vous êtes visé',bu1:'Vérifiez si votre organisation figure à l\'art. 74b LSI et n\'est pas exemptée par l\'ordonnance sur la cybersécurité.',
+  bv1:'Aucun des critères de signalement n\'est coché. ',bv2:'Vous n\'êtes pas soumis à l\'obligation de signaler. ',bv3:'Un signalement volontaire est possible et aide l\'OFCS à avertir d\'autres organisations.',bv4:'L\'obligation de signaler vise les cyberattaques. Le signalement volontaire d\'un incident ou d\'une vulnérabilité reste possible.',bvb:'Loi sur la sécurité de l\'information (signalements volontaires)',
+  f1:'Annonce initiale dans les 24 heures',f2:', rapport dans les 72 heures',fs:'Attaque grave : les 24 heures courent aussi les jours non ouvrables.',fm:'Les délais se comptent en jours ouvrables bancaires ; pour une attaque grave, ils courent tous les jours.',f3:'Pour une fonction externalisée, le délai court dès que vous ou votre prestataire identifiez l\'incident. Annonce au responsable de dossier par téléphone ou courriel, puis rapport sur le portail de la FINMA. Informez votre société d\'audit.',fb:'Art. 29 al. 2 LFINMA ; communications FINMA 05/2020 et 03/2024',
+  fa:'Sans délai, si l\'incident revêt une importance substantielle pour la surveillance',fa1:'Les règles propres aux cyberattaques s\'appliquent dès une gravité moyenne pour des fonctions ou données critiques. Documentez l\'évaluation et revoyez-la si la situation évolue.',fa2:'Une panne sans cause malveillante sort du champ des communications sur les cyberattaques. L\'obligation générale d\'annoncer subsiste pour les incidents importants.',
+  g72:'Dans les 72 heures après en avoir pris connaissance',g1:'Sauf si la violation n\'est pas susceptible d\'engendrer un risque pour les personnes concernées. Celles-ci sont informées si le risque est élevé.',gp:'En tant que sous-traitant, vous informez le responsable du traitement dans les meilleurs délais. Celui-ci notifie l\'autorité dans les 72 heures.',
+  o1:'<b>Police ou ministère public :</b> envisagez une plainte pénale. Certaines infractions ne sont poursuivies que sur plainte, dans les trois mois.',o2:'<b>Contrats :</b> des clients, des partenaires ou une société mère doivent peut-être être informés dans un délai contractuel.',o3:'<b>Cyberassurance :</b> les polices exigent en général un avis rapide.',o4:'<b>Autres règles :</b> le secret professionnel, des règles sectorielles et le droit étranger (par exemple DORA ou des règles américaines au sein d\'un groupe) peuvent ajouter des obligations.'},
+ sum:function(r,c){return (r?'<b>'+r+' annonce'+(r>1?'s':'')+' requise'+(r>1?'s':'')+'</b>':'<b>Aucune annonce à une autorité n\'est requise</b> selon ces réponses')+(c?', '+c+' point'+(c>1?'s':'')+' à vérifier ou à évaluer.':'.')},
+ foot:'Bases : art. 24 de la loi fédérale sur la protection des données (LPD) et art. 15 de l\'ordonnance sur la protection des données ; art. 74a à 74h de la loi sur la sécurité de l\'information (LSI) et ordonnance sur la cybersécurité ; art. 29 al. 2 LFINMA et communications FINMA 05/2020 et 03/2024 ; art. 33 et 34 RGPD. Le droit cantonal de la protection des données n\'est pas encore couvert. État : novembre 2026.<br>Information générale et première orientation. L\'outil simplifie les règles et ne remplace pas l\'analyse du cas concret. Il ne constitue pas un avis juridique. id est avocats · fonctionne hors ligne, aucune donnée ne quitte cette page.'}};
+var X={"en": {"sub": "Swiss law. The tool starts from a private person or company without any special status; each answer adds or removes an authority. The result updates as you go.", "caution": "<b>First orientation only.</b> The result depends on the answers given and on simplified rules. See the full disclaimer below the result.", "hDisc": "Disclaimer", "hBases": "Legal bases", "themeAuto": "Auto", "themeLight": "Light", "themeDark": "Dark", "band": "Orientation aid, to be verified in each case", "source": "Source code:", "licence": "<b>Licence:</b> code under the <a href=\"https://www.gnu.org/licenses/agpl-3.0.html\">GNU AGPL 3.0</a> or any later version; tables and legal texts under the <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\">CC BY-NC 4.0</a> licence (attribution: id est avocats Sàrl).", "bases": "Art. 24 Federal Act on Data Protection (FADP) and Art. 15 Data Protection Ordinance; Art. 74a to 74h Information Security Act (ISA) and Cybersecurity Ordinance; Art. 29 para. 2 FINMASA and FINMA Guidance 05/2020 and 03/2024; GDPR Art. 33 and 34. Texts consulted in November 2026. Cantonal data protection law is not covered yet.", "disc": ["This tool is provided free of charge by id est avocats Sàrl as an orientation aid. It does not constitute legal advice and its use does not create any client relationship with the firm.", "The tool is in a test phase (beta) and may contain errors. The texts were consulted in November 2026; they may have changed since.", "Results are indicative. They depend on the answers given and on simplified rules (list of critical infrastructures, risk thresholds, working days without public holidays). Cantonal law, sector rules, contracts and foreign law are not covered or only mentioned; users must check each duty and each deadline themselves.", "To the fullest extent permitted by law, id est avocats Sàrl accepts no liability for the consequences of using the tool.", "id est avocats does not collect any data through the use of the tool: the assessment is made in the browser and the answers are not stored. Only the chosen display mode and language are stored locally. The tool is hosted on GitHub, which may collect certain information, including by means of cookies, in accordance with its own privacy statement."]}, "fr": {"sub": "Droit suisse. L’outil part d’une personne ou d’une entreprise privée sans statut particulier ; chaque réponse ajoute ou retire une autorité. Le résultat se met à jour au fur et à mesure.", "caution": "<b>Première orientation uniquement.</b> Le résultat dépend des réponses données et de règles simplifiées. Voir l’avertissement complet sous le résultat.", "hDisc": "Avertissement", "hBases": "Bases légales", "themeAuto": "Auto", "themeLight": "Clair", "themeDark": "Sombre", "band": "Outil d’aide à l’orientation, à vérifier dans chaque cas", "source": "Code source :", "licence": "<b>Licence :</b> code sous licence <a href=\"https://www.gnu.org/licenses/agpl-3.0.html\">GNU AGPL 3.0</a> ou version ultérieure ; tableaux et textes juridiques sous licence <a href=\"https://creativecommons.org/licenses/by-nc/4.0/deed.fr\">CC BY-NC 4.0</a> (attribution : id est avocats Sàrl).", "bases": "Art. 24 de la loi fédérale sur la protection des données (LPD) et art. 15 de l’ordonnance sur la protection des données ; art. 74a à 74h de la loi sur la sécurité de l’information (LSI) et ordonnance sur la cybersécurité ; art. 29 al. 2 LFINMA et communications FINMA 05/2020 et 03/2024 ; art. 33 et 34 RGPD. Textes consultés en novembre 2026. Le droit cantonal de la protection des données n’est pas encore couvert.", "disc": ["Cet outil est mis à disposition gratuitement par id est avocats Sàrl à titre d’aide à l’orientation. Il ne constitue pas un conseil juridique et son utilisation ne crée aucune relation de mandat avec l’étude.", "L’outil est en phase de test (beta) et peut contenir des erreurs. Les textes ont été consultés en novembre 2026 ; ils peuvent avoir été modifiés depuis.", "Les résultats sont indicatifs. Ils dépendent des réponses données et de règles simplifiées (liste des infrastructures critiques, seuils de risque, jours ouvrables sans jours fériés). Le droit cantonal, les règles sectorielles, les contrats et le droit étranger ne sont pas couverts ou sont seulement mentionnés ; l’utilisateur doit vérifier lui-même chaque obligation et chaque délai.", "Dans toute la mesure autorisée, id est avocats Sàrl décline toute responsabilité pour les conséquences de l’utilisation de l’outil.", "id est avocats ne collecte aucune donnée dans le cadre de l’utilisation de l’outil : l’évaluation est effectuée dans le navigateur et les réponses ne sont pas conservées. Seuls le mode d’affichage et la langue choisis sont mémorisés localement. L’outil est hébergé sur le site GitHub, qui peut collecter certaines informations, notamment au moyen de cookies, conformément à sa propre déclaration relative à la protection des données."]}};
+var DEF={body:'private',delegate:'no',ci:'no',finma:'no',pd:'yes',rs:0,rp:0,proc:'no',attack:'yes',isa:[0,0,0,0],sev:'medium',gdpr:'no',when:'',det:false};
+var store={get:function(k,d){try{var v=localStorage.getItem('idest-notification:'+k);return v?JSON.parse(v):d}catch(e){return d}},set:function(k,v){try{localStorage.setItem('idest-notification:'+k,JSON.stringify(v))}catch(e){}}};
+var S=JSON.parse(JSON.stringify(DEF)),lang=store.get('lang',(navigator.language||'fr').slice(0,2)==='en'?'en':'fr'),L;
+var $=function(id){return document.getElementById(id)};
+function lvl(s,p){var v=s*p;return v>=8?'hi':v>=4?'me':'lo'}
+function seg(k,vals){var h='<div class="seg">';vals.forEach(function(v){h+='<button data-k="'+k+'" data-v="'+v+'"'+(S[k]===v?' class="on"':'')+'>'+L.q[k].o[v]+'</button>'});return h+'</div>'}
+function qb(k,inner,sub){return '<div class="q'+(sub?' sub':'')+'"><p>'+L.q[k].p+'</p>'+inner+'</div>'}
+function left(){var h='',pd=S.pd==='yes',q=L.q;
+  h+='<h2>'+L.s1+'</h2>'+qb('body',seg('body',['private','federal','cantonal']));
+  if(S.body==='private')h+=qb('delegate',seg('delegate',['no','federal','cantonal']),1);
+  h+=qb('ci',seg('ci',['no','yes','unsure'])+'<details id="det"'+(S.det?' open':'')+'><summary>'+q.ci.dt+'</summary><ul>'+q.ci.dl.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>'+q.ci.dn+'</details>');
+  h+=qb('finma',seg('finma',['no','yes']));
+  h+='<h2>'+L.s2+'</h2>'+qb('pd',seg('pd',['no','yes']));
+  if(pd){var m='<div class="axis">'+q.risk.y+' ↑</div><div class="mx">';
+    for(var p=4;p>=1;p--){m+='<div class="yl">'+q.risk.lv[p-1]+'</div>';for(var s=1;s<=4;s++){var c=lvl(s,p);m+='<button class="'+c+(S.rs===s&&S.rp===p?' on':'')+'" data-s="'+s+'" data-p="'+p+'" title="'+q.risk.c[c]+'">'+q.risk.c[c]+'</button>'}}
+    m+='<div></div>';q.risk.lv.forEach(function(x){m+='<div class="xl">'+x+'</div>'});
+    m+='</div><div class="axis" style="text-align:right">'+q.risk.x+' →</div><div class="lvl">'+(S.rs?q.risk.res+q.risk.c[lvl(S.rs,S.rp)]+' ('+q.risk.lv[S.rs-1]+' × '+q.risk.lv[S.rp-1]+')':q.risk.none)+'</div><small>'+q.risk.small+'</small>';
+    h+=qb('risk',m,1)+qb('proc',seg('proc',['no','yes']),1)}
+  h+=qb('attack',seg('attack',['no','yes']));
+  if(S.attack==='yes'&&S.ci!=='no')h+=qb('isa','<div class="chk">'+q.isa.c.map(function(x,i){return '<label'+(S.isa[i]?' class="on"':'')+'><input type="checkbox" data-i="'+i+'"'+(S.isa[i]?' checked':'')+'>'+x+'</label>'}).join('')+'</div>',1);
+  if(S.finma==='yes')h+=qb('sev',seg('sev',['low','medium','severe']),1);
+  h+='<h2>'+L.s3+'</h2>'+qb('gdpr',seg('gdpr',['no','yes']))+qb('when','<input type="datetime-local" id="when" value="'+S.when+'"><small>'+q.when.small+'</small>');
+  h+='<button class="btn" id="print">'+L.print+'</button><button class="btn" id="reset">'+L.reset+'</button>';
+  $('left').innerHTML=h;
+  [].forEach.call(document.querySelectorAll('.seg button'),function(b){b.onclick=function(){S[b.dataset.k]=b.dataset.v;draw()}});
+  [].forEach.call(document.querySelectorAll('.mx button'),function(b){b.onclick=function(){S.rs=+b.dataset.s;S.rp=+b.dataset.p;draw()}});
+  [].forEach.call(document.querySelectorAll('.chk input'),function(c){c.onchange=function(){S.isa[+c.dataset.i]=c.checked?1:0;draw()}});
+  $('when').onchange=function(){S.when=this.value;draw()};$('det').ontoggle=function(){S.det=this.open};
+  $('print').onclick=function(){window.print()};$('reset').onclick=function(){S=JSON.parse(JSON.stringify(DEF));draw()}}
+function addH(t,h){return new Date(t.getTime()+h*3600000)}
+function addWorkH(t,h){var x=new Date(t.getTime());while(x.getDay()===0||x.getDay()===6){x.setDate(x.getDate()+1);x.setHours(0,0,0,0)}
+  var l=h*60;while(l>0){var s=Math.min(l,60);x=new Date(x.getTime()+s*60000);l-=s;while(x.getDay()===0||x.getDay()===6)x.setDate(x.getDate()+1)}return x}
+function card(cls,tag,name,when,lines,basis){var h='<div class="card '+cls+'"><h3>'+name+'<span class="tag">'+tag+'</span></h3>';
+  if(when)h+='<div class="when">'+when+'</div>';(lines||[]).forEach(function(l){h+='<p>'+l+'</p>'});if(basis)h+='<p class="basis">'+basis+'</p>';return h+'</div>'}
+function result(){var t=L.t,n=L.n,g=L.tag,t0=S.when?new Date(S.when):null,fr=lang==='fr';
+  var by=function(d){return t0?' <span class="d">('+L.by+' '+d.toLocaleString(L.loc,{weekday:'short',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})+')</span>':''};
+  var pub=S.body!=='private',cant=S.body==='cantonal',pd=S.pd==='yes',att=S.attack==='yes',risk=S.rs?lvl(S.rs,S.rp):'me',isa=S.isa.indexOf(1)>=0,out=[],req=0,chk=0;
+  var a24=fr?'Art. 24 LPD':'Art. 24 FADP',a15=fr?'art. 15 OPDo':'Art. 15 Data Protection Ordinance';
+  if(cant){chk++;out.push(card('chkc',g.cant,n.cdpa,'',[t.cant1,t.cant2],t.cantb));out.push(card('no',g.nc,n.fdpic,'',[t.nc]))}
+  else if(!pd)out.push(card('no',g.no,n.fdpic,'',[t.nopd],a24));
+  else if(S.proc==='yes'){req++;out.push(card('req',g.req,n.ctl,L.asap,[t.proc1,t.proc2],fr?'Art. 24 al. 3 LPD':'Art. 24 para. 3 FADP'))}
+  else if(risk==='hi'){req++;out.push(card('req',g.req,n.fdpic,L.asap,[t.hi1,t.hi2],(fr?'Art. 24 al. 1 et 2 LPD':'Art. 24 para. 1 and 2 FADP')+' ; '+a15))}
+  else if(risk==='me'){chk++;out.push(card('chkc',g.ass,n.fdpic,t.mew,[t.me],a24))}
+  else out.push(card('no',g.no,n.fdpic,'',[t.lo],a24+' ; '+(fr?'art. 15 al. 4 OPDo':'Art. 15 para. 4 Data Protection Ordinance')));
+  if(pd&&!cant&&S.proc!=='yes'){var hi=risk!=='lo';if(hi)chk++;out.push(card(hi?'chkc':'no',hi?g.ass:g.unr,n.pers,'',[t.pers],fr?'Art. 24 al. 4 et 5 LPD':'Art. 24 para. 4 and 5 FADP'))}
+  if(!pub&&S.delegate==='cantonal'){chk++;out.push(card('chkc',g.chk,n.cdel,'',[t.cdel1,t.cdel2],t.cdelb))}
+  if(!pub&&S.delegate==='federal'){chk++;out.push(card('chkc',g.chk,n.fdel,'',[t.fdel1,t.fdel2],fr?'Art. 5 let. i LPD':'Art. 5 let. i FADP'))}
+  if(att&&S.ci==='yes'&&isa){req++;out.push(card('req',g.req,n.bacs,t.b24+by(t0?addH(t0,24):null),[t.b1,t.b2],t.bb))}
+  else if(att&&S.ci==='unsure'&&isa){chk++;out.push(card('chkc',g.chk,n.bacs,t.bu+by(t0?addH(t0,24):null),[t.bu1],fr?'Art. 74b et 74d LSI':'Art. 74b and 74d ISA'))}
+  else out.push(card('opt',g.vol,n.bacs,'',[att?(S.ci!=='no'?t.bv1:t.bv2)+t.bv3:t.bv4],t.bvb));
+  if(S.finma==='yes'){if(att&&S.sev!=='low'){req++;var sv=S.sev==='severe',d1=t0?(sv?addH(t0,24):addWorkH(t0,24)):null,d2=t0?(sv?addH(t0,72):addWorkH(t0,72)):null;
+      out.push(card('req',g.req,n.finma,t.f1+by(d1)+t.f2+by(d2),[sv?t.fs:t.fm,t.f3],t.fb))}
+    else{chk++;out.push(card('chkc',g.ass,n.finma,t.fa,[att?t.fa1:t.fa2],fr?'Art. 29 al. 2 LFINMA':'Art. 29 para. 2 FINMASA'))}}
+  if(S.gdpr==='yes'&&pd&&S.proc==='yes')out.push(card('opt',g.ctl,n.gdpr,'',[t.gp],fr?'Art. 33 par. 2 RGPD':'GDPR Art. 33 para. 2'));
+  else if(S.gdpr==='yes'&&pd){req++;out.push(card('req',g.req,n.gdpr,t.g72+by(t0?addH(t0,72):null),[t.g1],fr?'Art. 33 et 34 RGPD':'GDPR Art. 33 and 34'))}
+  out.push(card('opt',g.also,n.other,'',(att?[t.o1]:[]).concat([t.o2,t.o3,t.o4])));
+  $('res').innerHTML=out.join('');$('sum').innerHTML=L.sum(req,chk)}
+function applyTheme(th){var r=document.documentElement;if(th==='light'||th==='dark')r.setAttribute('data-theme',th);else r.removeAttribute('data-theme');
+  [].forEach.call(document.querySelectorAll('[data-theme-set]'),function(b){b.setAttribute('aria-pressed',String(b.dataset.themeSet===(th||'auto')))})}
+function draw(){L=T[lang];var x=X[lang];document.documentElement.lang=lang;document.title=L.h1+', id est avocats';$('title').textContent=L.h1;$('intro').textContent=x.sub;$('caution').innerHTML=x.caution;$('hres').textContent=L.res;
+  $('hDisc').textContent=x.hDisc;$('disc').innerHTML=x.disc.map(function(p){return '<p>'+p+'</p>'}).join('');$('hBases').textContent=x.hBases;$('bases').innerHTML='<p>'+x.bases+'</p>';
+  $('licence').innerHTML=x.licence;$('band').textContent=x.band;
+  ['Auto','Light','Dark'].forEach(function(k){document.querySelector('[data-theme-set='+k.toLowerCase()+']').textContent=x['theme'+k]});
+  var h=location.hostname;if(/\.github\.io$/.test(h)){var u='https://github.com/'+h.split('.')[0]+'/'+(location.pathname.split('/').filter(Boolean)[0]||'');$('srcLink').innerHTML=x.source+' <a href="'+u+'">'+u.replace('https://','')+'</a>'}else $('srcLink').hidden=true;
+  [].forEach.call(document.querySelectorAll('[data-lang-set]'),function(b){b.setAttribute('aria-pressed',String(b.dataset.langSet===lang))});left();result()}
+[].forEach.call(document.querySelectorAll('[data-lang-set]'),function(b){b.onclick=function(){lang=b.dataset.langSet;store.set('lang',lang);draw()}});
+[].forEach.call(document.querySelectorAll('[data-theme-set]'),function(b){b.onclick=function(){store.set('theme',b.dataset.themeSet);applyTheme(b.dataset.themeSet)}});
+applyTheme(store.get('theme','auto'));
+draw();
+})();
+</script>
+</body>
+</html>
